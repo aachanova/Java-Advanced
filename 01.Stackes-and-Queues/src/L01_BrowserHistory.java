@@ -5,25 +5,24 @@ import java.util.Scanner;
 public class L01_BrowserHistory {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayDeque<String> browserHistory = new ArrayDeque<>();
-        String input;
-        String currentURL = null;
 
-        while (!"Home".equals(input = scanner.nextLine())) {
-            if (input.equals("back")) {
-                if (browserHistory.isEmpty()) {
-                    System.out.println("no previous URLs");
-                    continue;
-                } else {
-                    currentURL = browserHistory.pop();
-                }
+        ArrayDeque<String> browserHistory = new ArrayDeque<>();
+        String input = scanner.nextLine();
+        while (!input.equals("Home")) {
+            if (!input.equals("back")) {
+                browserHistory.push(input);
             } else {
-                if (currentURL != null) {
-                    browserHistory.push(currentURL);
+                if (browserHistory.size() > 1) {
+                    browserHistory.pop();
+                } else {
+                    System.out.println("no previous URLs");
+                    input = scanner.nextLine();
+                    continue;
                 }
-                currentURL = input;
             }
-            System.out.println(currentURL);
+
+            System.out.println(browserHistory.peek());
+            input = scanner.nextLine();
         }
     }
 }

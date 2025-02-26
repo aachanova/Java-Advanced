@@ -11,6 +11,7 @@ public class L08_BrowserHistoryUpgrade {
         while (!"Home".equals(input = scanner.nextLine())) {
             if (!input.equals("back") && !input.equals("forward")) {
                 browserHistory.push(input);
+                forwardHistory.clear();
                 System.out.println(browserHistory.peek());
             } else if (input.equals("back")){
                 if (browserHistory.size() > 1) {

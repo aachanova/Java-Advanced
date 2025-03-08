@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Ex04_SumMatrixElements {
+public class L04_SumMatrixElements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[][] matrix = readMatrix(scanner);

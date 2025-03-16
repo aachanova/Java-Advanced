@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-public class Ex09ParkingSystem {
+public class Ex09_ParkingSystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] size = Arrays.stream(scanner.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();

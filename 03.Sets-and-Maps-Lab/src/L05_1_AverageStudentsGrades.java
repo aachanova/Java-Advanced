@@ -18,16 +18,20 @@ public class L05_AverageStudentsGrades {
         }
 
         students.forEach((key, value) -> {
-            double avgGrade = value.stream()
-                    .mapToDouble(Double::doubleValue)
-                    .average()
-                    .orElse(0.0);
-
             String gradesAsStrings = value.stream()
                     .map(grade -> String.format("%.2f", grade))
                     .collect(Collectors.joining(" "));
 
-            System.out.printf("%s -> %s (avg: %.2f)%n", key, gradesAsStrings, avgGrade);
+            System.out.printf("%s -> %s (avg: %.2f)%n", key, gradesAsStrings, getAverage(value));
         });
+    }
+
+    private static double getAverage(List<Double> value) {
+        double sum = 0.0;
+        for (Double grade : value) {
+            sum += grade;
+        }
+        return sum / value.size();
+
     }
 }
